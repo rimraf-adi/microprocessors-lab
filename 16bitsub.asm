@@ -1,0 +1,23 @@
+ASSUME CS:CODE DS:DATA
+
+DATA SEGMENT
+    NUM1 DW 1EE9H
+    NUM2 DW 0559H
+    RESULT DW 01 DUP(?)
+    DATA ENDS
+
+CODE SEGMENT
+    START:MOV AX, DATA           
+        MOV DS, AX
+        MOV CX,NUM1
+        MOV DX,NUM2
+        SUB CX,DX
+        MOV DI, OFFSET RESULT
+    
+        MOV [DI],AL       
+        MOV AH,4CH
+        INT 21H
+CODE ENDS
+END START
+
+          
