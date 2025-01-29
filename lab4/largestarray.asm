@@ -1,7 +1,7 @@
 ASSUME CODE:CS, DS:DATA    
 
 DATA SEGMENT
-    LIST DB 01H, 02H, 03H, 04H, 08H
+    LIST DB 01H, 02H, 01H, 04H, 08H
     MAX  DB 01 DUP(0)
     DATA ENDS
 
@@ -20,10 +20,10 @@ CODE SEGMENT
         INC SI
         MOV AL, [SI]
         CMP AL, MAX
-        JBE SKIP
+        JBE JUMPY
         MOV MAX, AL
 
-    SKIP:
+    JUMPY:
         DEC CL
         JNZ LOOPY
 
